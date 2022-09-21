@@ -1,0 +1,8 @@
+{
+  "application": {
+    "name": "hello-kube",
+    "path": "hello-kubernetes",
+    "namespace": "argo",
+    "helmFile": "values.yaml"
+  }
+}
