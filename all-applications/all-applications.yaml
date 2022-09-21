@@ -1,0 +1,25 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: all-helm-application
+spec:
+  generators:
+  - list:
+      elements:
+      - name: toto
+  template:
+    metadata:
+      name: hello-kubernetes 
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/Fredichou/argocd-test.git'
+        path: hello-kubernetes
+        targetRevision: HEAD
+        helm:
+          valueFiles:
+            - values.yaml  
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argo
