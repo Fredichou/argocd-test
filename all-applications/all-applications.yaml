@@ -5,11 +5,17 @@ metadata:
   name: all-helm-application
 spec:
   generators:
-  - git:
-      repoURL: 'https://github.com/Fredichou/argocd-test.git'
-      revision: HEAD
-      files:
-      - path: 'all-applications/deployments_helm/*.json'
+    - matrix:
+        generators:
+          - git:
+              repoURL: 'https://github.com/Fredichou/argocd-test.git'
+              revision: HEAD
+              files:
+                - path: 'all-applications/deployments_helm/*.json'
+          - clusters:
+              selector:
+                matchLabels:
+                  argocd.argoproj.io/secret-type: cluster
   template:
     metadata:
       name: hello-kubernetes 
