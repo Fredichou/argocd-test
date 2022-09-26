@@ -17,11 +17,11 @@ spec:
       project: default
       source:
         repoURL: 'https://github.com/Fredichou/argocd-test.git'
-        path: hello-kubernetes
+        path: '{{application.path}}'
         targetRevision: HEAD
         helm:
           valueFiles:
-            - values.yaml  
+            - '{{application.helmFile}}'  
       destination:
         server: https://kubernetes.default.svc
         namespace: argo
