@@ -20,8 +20,11 @@ spec:
         path: '{{application.path}}'
         targetRevision: HEAD
         helm:
+          parameters:
+          - name: message
+            value: Kikoo
           valueFiles:
-            - '{{application.helmFile}}'  
+          - '{{application.helmFile}}'  
       destination:
         server: https://kubernetes.default.svc
         namespace: argo
