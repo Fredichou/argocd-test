@@ -3,6 +3,6 @@
     "name": "hello-kube",
     "path": "hello-kubernetes",
     "namespace": "argo",
-    "helmFile": "values.yaml"
+    "helmFile": "values-prod.yaml"
   }
 }

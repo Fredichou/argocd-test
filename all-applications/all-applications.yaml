@@ -26,10 +26,8 @@ spec:
         path: '{{application.path}}'
         targetRevision: HEAD
         helm:
-          parameters:
-          - name: message
-            value: Kikoo
           valueFiles:
+          - values.yaml
           - '{{application.helmFile}}'  
       destination:
         server: https://kubernetes.default.svc
